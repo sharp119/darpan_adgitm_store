@@ -2,6 +2,12 @@ const functions = require("firebase-functions")
 const admin = require("firebase-admin")
 const sgMail = require("@sendgrid/mail")
 const mime = require("mime-types")
+require('dotenv').config();
+
+const sgMail = require('@sendgrid/mail');
+const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
+
+
 
 module.exports = functions.firestore.document("orders/{orderId}").onCreate(async (snapshot, _) => {
 	if (!snapshot.exists) {
@@ -105,8 +111,7 @@ module.exports = functions.firestore.document("orders/{orderId}").onCreate(async
 		}
 	}
 
-	const SENDGRID_API_KEY = "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"
-	sgMail.setApiKey(SENDGRID_API_KEY)
+	sgMail.setApiKey(SENDGRID_API_KEY);
 	const msg = {
 		to: [email],
 		cc: "enactusadgitm@gmail.com",
