@@ -1,0 +1,40 @@
+@import "../../variables.scss";
+
+.button {
+	border: none;
+	padding: 0.5rem 2rem;
+	border-radius: 0.2rem;
+	box-shadow: 0 1px 2px black;
+	outline: none;
+	font-weight: bolder;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+
+	&:active {
+		box-shadow: none;
+	}
+	&.white {
+		background-color: white;
+		color: black;
+	}
+	&.primary {
+		background-color: $primary;
+	}
+	&.danger {
+		background-color: $danger;
+		color: white;
+	}
+	&.black {
+		background-color: black;
+		color: white;
+	}
+	&:disabled,
+	&.disabled {
+		background-color: gray;
+		color: white;
+		box-shadow: none;
+		cursor: default;
+	}
+}

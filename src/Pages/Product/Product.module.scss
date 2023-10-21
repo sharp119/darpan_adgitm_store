@@ -1,0 +1,236 @@
+@import "../../variables.scss";
+
+.product {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 0.6fr 0.9fr;
+	column-gap: 2rem;
+	position: relative;
+	padding-top: 2rem;
+
+	.imagesContainer {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		.carousel {
+			position: relative;
+			width: 100%;
+			max-width: 400px;
+			height: 400px;
+
+			img {
+				max-width: 100%;
+				height: auto;
+				max-height: 100%;
+				transform-origin: center center;
+				transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+				position: absolute;
+				top: 50%;
+				left: 50%;
+
+				&.show {
+					transform: translate(-50%, -50%) scale(1);
+					visibility: visible;
+				}
+
+				&.left {
+					transform: translate(-100%, -50%) scale(0);
+				}
+
+				&.right {
+					transform: translate(0%, -50%) scale(0);
+				}
+			}
+		}
+		.buttons {
+			margin-top: 1rem;
+			align-self: center;
+			display: none;
+			justify-content: center;
+			align-items: center;
+			gap: 2rem;
+
+			&.show {
+				display: flex;
+			}
+
+			img {
+				width: 3rem;
+				border-radius: 50%;
+				cursor: pointer;
+				transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+			}
+			.prev {
+				transform: translateX(0);
+				&:hover {
+					transform: translateX(-1rem);
+				}
+				&:active {
+					transform: translateX(0);
+				}
+			}
+			.next {
+				transform: rotateZ(180deg) translateX(0);
+				&:hover {
+					transform: rotateZ(180deg) translateX(-1rem);
+				}
+				&:active {
+					transform: rotateZ(180deg) translateX(0);
+				}
+			}
+		}
+	}
+
+	.content {
+		align-self: flex-start;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		padding: 4rem 4rem 4rem 0rem;
+
+		.back {
+			display: flex;
+			align-items: center;
+			gap: 0.4rem;
+			margin-bottom: 0.4rem;
+			text-decoration: underline;
+			cursor: pointer;
+
+			&:active,
+			&:visited,
+			&:focus {
+				color: inherit;
+			}
+
+			img {
+				transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+			}
+
+			&:hover,
+			&:active {
+				text-decoration: none;
+				img {
+					transform: translateX(-0.6rem);
+				}
+			}
+		}
+		.name {
+			font-size: 2.5rem;
+		}
+
+		.price,
+		.discount {
+			font-size: 1.7rem;
+			margin-top: 0.4rem;
+		}
+
+		.discount {
+			.old {
+				font-size: 1.4rem;
+				opacity: 0.7;
+				text-decoration: line-through;
+				margin-right: 0.4rem;
+			}
+		}
+
+		.discountMessage {
+			font-size: 1.2rem;
+			opacity: 0.5;
+			color: red;
+			margin-bottom: 0.3rem;
+		}
+
+		.deliveryCost,
+		.codCost {
+			font-size: 1.2rem;
+		}
+
+		.inventory {
+			margin-top: 1rem;
+			font-size: 1.2rem;
+			text-decoration: underline;
+		}
+		.message{
+			font-size: 1rem;
+			margin-top: 0.5rem;
+		}
+		.description {
+			.heading {
+				font-size: 1.5rem;
+				margin-top: 1rem;
+				text-transform: capitalize;
+				font-weight: bold;
+				opacity: 0.8;
+			}
+
+			.para,
+			ul,
+			ol {
+				font-size: 1.1rem;
+				opacity: 0.92;
+				font-weight: 100;
+			}
+
+			ul,
+			ol {
+				list-style-position: inside;
+			}
+			ul {
+				list-style-image: url("../../Assets/check.svg");
+			}
+		}
+
+		.buttons {
+			display: flex;
+			gap: 0.6rem;
+			flex-wrap: wrap;
+
+			.cartButton {
+				margin-top: 0.6rem;
+				font-weight: normal;
+				font-size: 1.1rem;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: map-get($map: $breakpoint, $key: "xl" )) {
+	.product {
+		grid-template-columns: 0.5fr 1fr;
+		padding: 1rem 2rem;
+
+		.content {
+			padding: 0;
+		}
+	}
+}
+
+@media screen and (max-width: map-get($map: $breakpoint, $key: "md" )) {
+	.product {
+		grid-template-columns: 1fr;
+		padding: 1rem 2rem;
+		row-gap: 2rem;
+
+		.content {
+			padding: 0;
+			.buttons {
+				position: sticky;
+				bottom: 0;
+				width: 100%;
+				padding: 0.4rem 0;
+
+				.cartButton {
+					margin: 0;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: map-get($map: $breakpoint, $key:"sm" )) {
+}

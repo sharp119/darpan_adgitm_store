@@ -1,0 +1,27 @@
+@import "../../variables.scss";
+
+.products {
+	display: flex;
+	padding: 1rem;
+	justify-content: center;
+	
+	.productsWrapper {
+		justify-content: left;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		justify-content: center;
+
+		@media screen and (max-width: map-get($map: $breakpoint, $key: "xl")) {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+		@media screen and (max-width: map-get($map: $breakpoint, $key: "lg")) {
+			grid-template-columns: 1fr 1fr;
+		}
+		@media screen and (max-width: map-get($map: $breakpoint, $key: "md")) {
+			grid-template-columns: 1fr 1fr;
+		}
+		@media screen and (max-width: map-get($map: $breakpoint, $key: "sm")) {
+			grid-template-columns: 1fr;
+		}
+	}
+}

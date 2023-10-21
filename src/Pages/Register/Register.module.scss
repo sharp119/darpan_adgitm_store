@@ -1,0 +1,47 @@
+@import "../../variables.scss";
+
+.register {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 90vh;
+}
+.registerForm {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+	padding: 2rem 2rem;
+	border-radius: 0.2rem;
+	max-width: 100%;
+	width: 25rem;
+	gap: 0.6rem;
+
+	h1 {
+		margin-top: 0;
+	}
+	.alreadyAccount {
+		a,
+		a:visited,
+		a:active {
+			color: #4267b2;
+		}
+	}
+	@media screen and (max-width: map-get($map: $breakpoint, $key:"sm" )) {
+		min-width: 100%;
+	}
+}
+
+.googleButton {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	width: 100%;
+	background-color: #ff3d00;
+	color: White;
+	svg {
+		height: 100%;
+		width: auto;
+	}
+}
